@@ -1,0 +1,111 @@
+Задание 1. Используя указатели и оператор разыменования, определить наибольшее из двух чисел. 
+
+Задание 2. Используя указатели и оператор разыменования, определить знак числа, введённого с клавиатуры.
+
+Задание 3. Используя указатели и оператор разыменования, обменять местами значения двух переменных. 
+
+Задание 4. Написать примитивный калькулятор, пользуясь только указателями. 
+
+Задание 5. Используя указатель на массив целых чисел, посчитать сумму элементов массива. Использовать в программе арифметику указателей для продвижения по массиву, а также оператор разыменования. 
+
+
+1)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+ int* pointer_01 = new int(6);
+int* pointer_02 = new int(18);
+if (*pointer_01 > *pointer_02)
+{
+cout << *pointer_01 << endl;
+}
+if (*pointer_01 == *pointer_02)
+{
+cout << *pointer_01 << endl;
+cout << *pointer_02 << endl;
+}
+if (*pointer_01 < *pointer_02)
+{
+cout << *pointer_02 << endl;
+}
+
+
+}
+
+
+
+
+
+2)
+ int* pointer = nullptr;
+pointer = new int;
+cin >> *(pointer);
+if (*(pointer) >= 0)
+{
+std::cout << "+" << std::endl;
+}
+else
+{
+std::cout << "-" << std::endl;
+}
+delete pointer;
+pointer = nullptr;
+
+
+
+3)
+int* pointer_01 = new int(5);
+int* pointer_02 = new int(10);
+std::swap(*pointer_01, *pointer_02);
+cout << *pointer_01 << endl;
+cout << *pointer_02 << endl;
+system("pause");
+
+4)#include <iostream> 
+using namespace std; 
+ 
+int main() { 
+    float a, b;                
+    float *ptrA = &a;         
+    float *ptrB = &b;        
+    char operation;                
+ 
+    cin >> *ptrA;                
+ 
+    cin >> *ptrB;               
+ 
+    cout << "+, -, *, /: "; 
+    cin >> operation; 
+ 
+    switch (operation) { 
+        case '+': 
+            cout << "Результат: " << (*ptrA + *ptrB) << endl;  
+            break; 
+        case '-': 
+            cout << "Результат: " << (*ptrA - *ptrB) << endl;  
+            break; 
+        case '*': 
+            cout << "Результат: " << (*ptrA * *ptrB) << endl;  
+            break; 
+        case '/': 
+            if (*ptrB != 0) { 
+                cout << "Результат: " << (*ptrA / *ptrB) << endl;  
+            } 
+         
+    } 
+ 
+    return 0; 
+}
+
+
+5)
+setlocale(LC_ALL, "Russian");
+int S(0);
+int Array[5] = { 1,1,1,1,1 };
+for (int i(0); i < 5; i++)
+{
+S += *(Array + i);
+}
+cout << S << endl;
+system("pause");
